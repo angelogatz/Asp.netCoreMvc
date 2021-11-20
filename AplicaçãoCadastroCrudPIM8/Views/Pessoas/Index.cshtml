@@ -1,0 +1,75 @@
+﻿@model IEnumerable<AplicaçãoCadastroCrudPIM8.Models.Pessoa>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4>Todos os Cadastros</h4>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CPF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Endereco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CEP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bairro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                <a asp-action="AddOrEdit" class="btn btn-outline-primary"><i class="uil uil-clipboard-notes"></i> Novo Cadastro</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CPF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Endereco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CEP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bairro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                <a asp-action="AddOrEdit" asp-route-id="@item.CadastroId"><i class="uil uil-edit"></i></a>
+                <a asp-action="Delete" asp-route-id="@item.CadastroId" onclick="return confirm('Deseja realmente deletar este Cadastro?')" class="text-danger ml-1"><i class="uil uil-trash-alt"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
